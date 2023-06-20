@@ -9,10 +9,12 @@ public class HelperBase {
     WebDriver wd;
 
     public HelperBase(WebDriver wd) {
+
         this.wd = wd;
     }
 
     protected void click(By locator) {
+
         wd.findElement(locator).click();
     }
     public void type(By locator, String text){
