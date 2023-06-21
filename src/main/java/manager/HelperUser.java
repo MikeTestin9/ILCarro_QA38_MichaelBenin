@@ -36,10 +36,15 @@ public class HelperUser extends HelperBase{
     }
 
     public void logout() {
-
+        click(By.xpath("//*[.=' Logout ']"));
     }
     public boolean isLogged() {
-        return false;
+
+        return isElementPresent(By.xpath("//*[.=' Logout ']"));
     }
 
+    public void passLoggedInWindow() {
+     //   click(By.xpath("//button[normalize-space()='Ok']"));
+        click(By.xpath("//button[@type='button']"));
+    }
 }

@@ -1,5 +1,6 @@
 import models.User;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -9,7 +10,9 @@ public class LoginTests extends TestBase{
 
     @BeforeMethod
     public void precondition(){
-
+        if(app.getUser().isLogged()){
+            app.getUser().logout();
+        }
 
     }
 
@@ -20,15 +23,24 @@ public class LoginTests extends TestBase{
                 .withPassword("Mb12345$")
                 ;
 
-        app.getUser().openLoginForm();               //open login form
-        app.getUser().fillLoginForm(user);           //fill login form
-        app.getUser().submitLogin();                 //click on button Yalla
+        app.getUser().openLoginForm();              //open login form
+        app.getUser().fillLoginForm(user);          //fill login form
+        app.getUser().submitLogin();                //click on button Yalla
+        app.getUser().pause(3000);            //pause for 3 seconds
+        Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button[normalize-space()='Ok']")));
     }
 
 
 
     @AfterMethod
     public void postcondition(){
+
+
+        if(app.getUser().isElementPresent(By.xpath("//*[@role='dialog']"))){
+            app.getUser().passLoggedInWindow();
+        }
+        app.getUser().pause(3000);
+        app.getUser().logout();
 
     }
 
