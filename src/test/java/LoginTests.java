@@ -27,7 +27,7 @@ public class LoginTests extends TestBase{
         app.getUser().fillLoginForm(user);          //fill login form
         app.getUser().submitLogin();                //click on button Yalla
         app.getUser().pause(3000);            //pause for 3 seconds
-        Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button[normalize-space()='Ok']")));
+        Assert.assertTrue(app.getUser().isLoggedSuccess());
     }
 
 
@@ -64,7 +64,7 @@ public class LoginTests extends TestBase{
 //        app.getUser().fillLoginForm(email, password);   //fill login form
 //        app.getUser().submitLogin();     //click on button Yalla
 //        app.getUser().pause(3000);   //pause for 3 seconds
-//        Assert.assertTrue(app.getUser().isElementPresent(By.xpath("//button[normalize-space()='Ok']")));
+//        Assert.assertTrue(app.getUser().isLoggedSuccess());
 //    }
 
 
