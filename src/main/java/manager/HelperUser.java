@@ -67,4 +67,11 @@ public class HelperUser extends HelperBase{
         submitLogin();
         passLoggedInWindow();
     }
+
+    public boolean isWrongEmail() {
+        return isElementPresent(By.xpath("//*[contains(text(),'Wrong email format')]"));
+    }
+    public boolean isWrongPassword() {
+        return isElementPresent(By.xpath("//*[contains(text(),'Password must contain')]"));
+    }
 }

@@ -17,7 +17,7 @@ public class RegistrationTests extends TestBase {
         User user = new User()
                 .withName("Mike")
                 .withLastName("Ben")
-                .withEmail("Mike_" + i + "@gmail.com")
+                .withEmail("mike_" + i + "@gmail.com")
                 .withPassword("Mb12345$");
 
         app.getUser().openRegistrationForm();
@@ -25,6 +25,52 @@ public class RegistrationTests extends TestBase {
         app.getUser().submitLogin();
         Assert.assertTrue(app.getUser().isLoggedSuccess());
 
+    }
+
+    @Test
+    public void registrationNegativeWrongEmail(){
+        int i = (int)(System.currentTimeMillis()/1000)%3600;
+        User user = new User()
+                .withName("Mike")
+                .withLastName("Ben")
+                .withEmail("mike_" + i + "gmail.com")
+                .withPassword("Mb12345$");
+
+        app.getUser().openRegistrationForm();
+        app.getUser().fillRegistrationForm(user);
+        app.getUser().submitLogin();
+        Assert.assertTrue(app.getUser().isWrongEmail());
+    }
+    @Test
+    public void registrationNegativeWrongEmailUpperLetter(){ //shows that "Wrong email format" but registration passes.
+                                                            //if to try it by hands, submit button is not active
+        int i = (int)(System.currentTimeMillis()/1000)%3600;
+        User user = new User()
+                .withName("Mike")
+                .withLastName("Ben")
+                .withEmail("Mike_" + i + "@gmail.com")
+                .withPassword("Mb12345$");
+
+        app.getUser().openRegistrationForm();
+        app.getUser().pause(5000);
+        app.getUser().fillRegistrationForm(user);
+        app.getUser().pause(5000);   //added pause, but registration passes and test passes........ added longer pause byt still passes wtf
+        app.getUser().submitLogin();
+        Assert.assertTrue(app.getUser().isWrongEmail());  //writes that test passed, but final window is registered user logged in
+    }
+    @Test
+    public void registrationNegativeWrongPassword(){
+        int i = (int)(System.currentTimeMillis()/1000)%3600;
+        User user = new User()
+                .withName("Mike")
+                .withLastName("Ben")
+                .withEmail("mike_" + i + "@gmail.com")
+                .withPassword("Mb12345");
+
+        app.getUser().openRegistrationForm();
+        app.getUser().fillRegistrationForm(user);
+        app.getUser().submitLogin();
+        Assert.assertTrue(app.getUser().isWrongPassword());
     }
 
     @AfterMethod
