@@ -52,9 +52,9 @@ public class RegistrationTests extends TestBase {
                 .withPassword("Mb12345$");
 
         app.getUser().openRegistrationForm();
-        app.getUser().pause(5000);
+
         app.getUser().fillRegistrationForm(user);
-        app.getUser().pause(5000);   //added pause, but registration passes and test passes........ added longer pause byt still passes wtf
+
         app.getUser().submitLogin();
         Assert.assertTrue(app.getUser().isWrongEmail());  //writes that test passed, but final window is registered user logged in
     }
@@ -65,7 +65,7 @@ public class RegistrationTests extends TestBase {
                 .withName("Mike")
                 .withLastName("Ben")
                 .withEmail("mike_" + i + "@gmail.com")
-                .withPassword("Mb12345");
+                .withPassword("Mb123455");
 
         app.getUser().openRegistrationForm();
         app.getUser().fillRegistrationForm(user);
