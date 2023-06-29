@@ -2,7 +2,10 @@ package manager;
 
 import models.Car;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,7 +31,7 @@ public class HelperCar extends HelperBase{
         select(By.id("fuel"), car.getFuel());
         type(By.id("seats"), car.getSeats());
         type(By.id("class"), car.getCarClass());
-        type(By.id("serialNumber"), car.getCarRegNumber());
+        typeSerialNum(By.id("serialNumber"), car.getCarRegNumber());
         type(By.id("price"), car.getPrice());
     }
 
@@ -48,6 +51,21 @@ public class HelperCar extends HelperBase{
                                 "details"));
     }
 
+    public void typeSerialNum(By locator, String text){
+        WebElement element = wd.findElement(locator);
+        Actions actions = new Actions(wd);
+        actions.moveToElement(element, +10,0).click().perform();
+        element.clear();
+        element.sendKeys(text);
+    }
 
+    public void submitCarForm(){
+
+        wd.findElement(By.xpath("//button[text()='Submit']")).click();
+
+    }
+    public boolean isAddCarSuccess() {
+        return isElementPresent(By.xpath("//h2[contains(text(),'successful')]"));
+    }
 
 }

@@ -1,5 +1,6 @@
 import models.Car;
 import models.User;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -30,7 +31,8 @@ public class AddNewCar extends TestBase{
                 .build();
         app.getCar().openCarForm();
         app.getCar().fillCarForm(car);
-        app.getUser().submitLogin();
+        app.getCar().submitCarForm();
+        Assert.assertTrue(app.getCar().isAddCarSuccess());
 
     }
 }
