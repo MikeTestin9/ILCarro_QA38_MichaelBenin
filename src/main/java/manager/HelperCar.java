@@ -1,10 +1,8 @@
 package manager;
 
+import javafx.scene.control.Tab;
 import models.Car;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Rectangle;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -40,6 +38,7 @@ public class HelperCar extends HelperBase{
         click(By.cssSelector("div.pac-item"));
     }
 
+
     public void select(By locator, String option){
         new Select(wd.findElement(locator)).selectByValue(option);
     }
@@ -53,11 +52,12 @@ public class HelperCar extends HelperBase{
 
     public void typeSerialNum(By locator, String text){
         WebElement element = wd.findElement(locator);
-        Actions actions = new Actions(wd);
-        actions.moveToElement(element, +10,0).click().perform();
+//        Actions actions = new Actions(wd);
+//        actions.moveToElement(element, +10,0).click().perform();
         element.clear();
         element.sendKeys(text);
     }
+
 
     public void submitCarForm(){
 

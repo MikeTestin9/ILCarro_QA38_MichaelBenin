@@ -1,0 +1,1 @@
+16:14:25 INFO  TestBase - registrationPositive starts with credentials: login -> mike_864@gmail.com and password -> Mb12345$

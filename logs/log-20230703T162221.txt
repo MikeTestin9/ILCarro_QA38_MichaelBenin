@@ -1,0 +1,4 @@
+16:22:30 INFO  TestBase - openRegistrationForm invoked
+16:22:30 INFO  TestBase - fillRegistrationForm invoked
+16:22:30 INFO  TestBase - submitLogin invoked
+16:22:30 INFO  TestBase - registrationPositive starts with credentials: login -> mike_1350@gmail.com and password -> Mb12345$
