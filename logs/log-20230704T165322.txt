@@ -1,0 +1,40 @@
+16:53:27 INFO  TestBase - Method registrationNegativeWrongEmail is started
+16:53:27 INFO  manager.WebDriverListener - Start searching element ----> By.xpath: //*[.=' Logout ']
+16:53:32 INFO  manager.WebDriverListener - Element with locator ----> By.xpath: //*[.=' Logout '] is found
+16:53:32 INFO  manager.TestNgListener - Test registrationNegativeWrongEmail invoked
+16:53:32 INFO  manager.WebDriverListener - Start searching element ----> By.xpath: //*[.=' Sign up ']
+16:53:32 INFO  manager.WebDriverListener - Element with locator ----> By.xpath: //*[.=' Sign up '] is found
+16:53:32 INFO  manager.WebDriverListener - Start searching element ----> By.xpath: //input[@id='name']
+16:53:32 INFO  manager.WebDriverListener - Element with locator ----> By.xpath: //input[@id='name'] is found
+16:53:32 INFO  manager.WebDriverListener - Start searching element ----> By.xpath: //input[@id='lastName']
+16:53:32 INFO  manager.WebDriverListener - Element with locator ----> By.xpath: //input[@id='lastName'] is found
+16:53:32 INFO  manager.WebDriverListener - Start searching element ----> By.xpath: //input[@id='email']
+16:53:32 INFO  manager.WebDriverListener - Element with locator ----> By.xpath: //input[@id='email'] is found
+16:53:32 INFO  manager.WebDriverListener - Start searching element ----> By.xpath: //input[@id='password']
+16:53:32 INFO  manager.WebDriverListener - Element with locator ----> By.xpath: //input[@id='password'] is found
+16:53:32 INFO  manager.WebDriverListener - Start searching element ----> By.xpath: //button[text()='Y’alla!']
+16:53:32 INFO  manager.WebDriverListener - Element with locator ----> By.xpath: //button[text()='Y’alla!'] is found
+16:53:32 INFO  manager.WebDriverListener - Start searching element ----> By.xpath: //*[contains(text(),'Wrong email format')]
+16:53:32 INFO  manager.WebDriverListener - Element with locator ----> By.xpath: //*[contains(text(),'Wrong email format')] is found
+16:53:32 INFO  manager.TestNgListener - Test registrationNegativeWrongEmail successful
+16:53:32 INFO  manager.WebDriverListener - Start searching element ----> By.xpath: //button[@type='button']
+16:53:37 INFO  manager.WebDriverListener - Something went wrong!
+16:53:37 INFO  manager.WebDriverListener - no such element: Unable to locate element: {"method":"xpath","selector":"//button[@type='button']"}
+  (Session info: chrome=114.0.5735.199)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-AO3EVK79', ip: '192.168.1.174', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\micha\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55940}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3f2f3c43f28516a47700374e416f5eaf
+*** Element info: {Using=xpath, value=//button[@type='button']}
+16:53:37 INFO  manager.WebDriverListener - org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@type='button']"}
+  (Session info: chrome=114.0.5735.199)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-AO3EVK79', ip: '192.168.1.174', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_333'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\micha\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55940}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3f2f3c43f28516a47700374e416f5eaf
+*** Element info: {Using=xpath, value=//button[@type='button']}
+16:53:38 INFO  manager.WebDriverListener - This is a link to screenshot with error ---> src/test/screenshots/screen-3217.png
