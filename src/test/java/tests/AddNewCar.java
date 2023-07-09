@@ -1,10 +1,13 @@
+package tests;
+
 import models.Car;
 import models.User;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AddNewCar extends TestBase{
+public class AddNewCar extends TestBase {
 
     @BeforeMethod
     public void precondition(){
@@ -33,6 +36,14 @@ public class AddNewCar extends TestBase{
         app.getCar().fillCarForm(car);
         app.getCar().submitCarForm();
         Assert.assertTrue(app.getCar().isAddCarSuccess());
+        app.getCar().AddAnotherCarButtonSubmit();
 
+    }
+
+    @AfterClass
+    public void tearDown(){
+        if(app.getUser().isLogged()){
+            app.getUser().logout();
+        }
     }
 }

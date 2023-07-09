@@ -2,6 +2,7 @@ package manager;
 
 import com.google.common.io.Files;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,9 +20,13 @@ public class HelperBase {
 
         wd.findElement(locator).click();
     }
+
+
     public void type(By locator, String text){
         WebElement element = wd.findElement(locator);
         // element.click();
+//        Actions actions = new Actions(wd);
+//        actions.moveToElement(element).click().perform();
         element.clear();
         element.sendKeys(text);
     }
@@ -47,8 +52,9 @@ public class HelperBase {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
+    public void refreshPage(){
+        wd.navigate().refresh();
+    }
 }

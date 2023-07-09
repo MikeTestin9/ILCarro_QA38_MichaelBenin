@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="ProductionReg" verbose="1" >
+
+        <test name="regtests">
+            <classes>
+                <class name="tests.RegistrationTests"/>
+            </classes>
+        </test>
+</suite>

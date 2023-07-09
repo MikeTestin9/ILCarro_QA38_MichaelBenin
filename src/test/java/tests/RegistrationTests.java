@@ -1,16 +1,15 @@
+package tests;
+
 import manager.TestNgListener;
 import models.User;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 @Listeners(TestNgListener.class)
 
 public class RegistrationTests extends TestBase {
 
-    @BeforeMethod
+    @BeforeTest
     public void precondition(){
         if(app.getUser().isLogged()) app.getUser().logout();
     }
@@ -32,6 +31,8 @@ public class RegistrationTests extends TestBase {
         logger.info("submitLogin invoked");
         logger.info("registrationPositive starts with credentials: login -> " + user.getEmail() + " and password -> " + user.getPassword());
         Assert.assertTrue(app.getUser().isLoggedSuccess());
+        app.getUser().passLoggedInWindow();
+        app.getUser().pause(3000);
 
     }
 
@@ -48,10 +49,10 @@ public class RegistrationTests extends TestBase {
         app.getUser().fillRegistrationForm(user);
         app.getUser().submitLogin();
         Assert.assertTrue(app.getUser().isWrongEmail());
+        logger.info("registration failed - wrong email");
     }
     @Test
-    public void registrationNegativeWrongEmailUpperLetter(){ //shows that "Wrong email format" but registration passes.
-                                                            //if to try it by hands, submit button is not active
+    public void registrationNegativeWrongEmailUpperLetter(){
         int i = (int)(System.currentTimeMillis()/1000)%3600;
         User user = new User()
                 .withName("Mike")
@@ -60,11 +61,10 @@ public class RegistrationTests extends TestBase {
                 .withPassword("Mb12345$");
 
         app.getUser().openRegistrationForm();
-
         app.getUser().fillRegistrationForm(user);
-
         app.getUser().submitLogin();
-        Assert.assertTrue(app.getUser().isWrongEmail());  //writes that test passed, but final window is registered user logged in
+        Assert.assertTrue(app.getUser().isWrongEmail());
+        logger.info("registration failed - wrong email - email has an upper letter");
     }
     @Test
     public void registrationNegativeWrongPassword(){
@@ -79,10 +79,12 @@ public class RegistrationTests extends TestBase {
         app.getUser().fillRegistrationForm(user);
         app.getUser().submitLogin();
         Assert.assertTrue(app.getUser().isWrongPassword());
+        logger.info("registration failed - wrong password");
     }
 
     @AfterMethod
     public void postcondition(){
-        app.getUser().passLoggedInWindow();
+        app.getUser().refreshPage();
+        if(app.getUser().isLogged()) app.getUser().logout();
     }
 }

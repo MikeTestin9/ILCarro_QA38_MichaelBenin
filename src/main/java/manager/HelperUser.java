@@ -43,10 +43,10 @@ public class HelperUser extends HelperBase{
     public void clickCheckbox(){
         System.out.println("Clicked checkbox");
         // variant 1
-//        click(By.cssSelector("label[for='terms-of-use']"));
-        // variant 2
-        JavascriptExecutor js = (JavascriptExecutor) wd;
-        js.executeScript("document.querySelector('#terms-of-use').click();");
+       click(By.cssSelector("label[for='terms-of-use']"));
+        // variant 2 ------------------------- if to do this var. wrong password fails cuz there is no click
+//        JavascriptExecutor js = (JavascriptExecutor) wd;
+//        js.executeScript("document.querySelector('#terms-of-use').click();");
         // variant 3
 //        Rectangle rect = wd.findElement(By.cssSelector("div.checkbox-container")).getRect();
 //        int x = rect.getX() + 5;

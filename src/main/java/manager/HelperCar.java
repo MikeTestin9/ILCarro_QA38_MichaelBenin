@@ -67,5 +67,8 @@ public class HelperCar extends HelperBase{
     public boolean isAddCarSuccess() {
         return isElementPresent(By.xpath("//h2[contains(text(),'successful')]"));
     }
+    public void AddAnotherCarButtonSubmit(){
+        click(By.xpath("//button[text()='Add another car']"));
+    }
 
 }
