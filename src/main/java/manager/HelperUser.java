@@ -60,9 +60,9 @@ public class HelperUser extends HelperBase{
         //wd.findElement(By.xpath("//button[@type='submit']")).submit();
         //click(By.xpath("//button[text()='Y’alla!']"));
        //wd.findElement(By.xpath("//button[text()='Y’alla!']")).submit();
-        wd.findElement(By.xpath("//button[text()='Y’alla!']")).click();
+        //wd.findElement(By.xpath("//button[text()='Y’alla!']")).click();
         //click(By.xpath("//button[@type='submit']"));
-        //click(By.cssSelector("button[type='submit']"));
+        click(By.cssSelector("button[type='submit']"));
     }
 
     public void logout() {
