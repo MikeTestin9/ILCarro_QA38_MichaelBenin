@@ -1,10 +1,12 @@
 package tests;
 
+import manager.ProviderData;
 import models.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginTests extends TestBase {
@@ -23,6 +25,20 @@ public class LoginTests extends TestBase {
                 .withEmail("mikeben@gmail.com")
                 .withPassword("Mb12345$")
                 ;
+
+        app.getUser().openLoginForm();
+        app.getUser().fillLoginForm(user);
+        app.getUser().submitLogin();
+        app.getUser().pause(3000);
+        Assert.assertTrue(app.getUser().isLoggedSuccess());
+    }
+
+    @Test(dataProvider = "userDto", dataProviderClass = ProviderData.class)
+    public void loginPositiveUserDTO(User user){
+//        User user = new User()
+//                .withEmail("mikeben@gmail.com")
+//                .withPassword("Mb12345$")
+//                ;
 
         app.getUser().openLoginForm();
         app.getUser().fillLoginForm(user);
