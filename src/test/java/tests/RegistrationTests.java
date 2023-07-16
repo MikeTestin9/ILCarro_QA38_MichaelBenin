@@ -1,5 +1,6 @@
 package tests;
 
+import manager.ProviderData;
 import manager.TestNgListener;
 import models.User;
 import org.testng.Assert;
@@ -33,7 +34,20 @@ public class RegistrationTests extends TestBase {
         Assert.assertTrue(app.getUser().isLoggedSuccess());
         app.getUser().passLoggedInWindow();
         app.getUser().pause(3000);
+    }
+    @Test(dataProvider = "userDtoCSV", dataProviderClass = ProviderData.class)
+    public void registrationPositiveDTO(User user){
 
+        app.getUser().openRegistrationForm();
+        logger.info("openRegistrationForm invoked");
+        app.getUser().fillRegistrationForm(user);
+        logger.info("fillRegistrationForm invoked");
+        app.getUser().submitLogin();
+        logger.info("submitLogin invoked");
+        logger.info("registrationPositive starts with credentials: login -> " + user.getEmail() + " and password -> " + user.getPassword());
+        Assert.assertTrue(app.getUser().isLoggedSuccess());
+        app.getUser().passLoggedInWindow();
+        app.getUser().pause(3000);
     }
 
     @Test

@@ -1,8 +1,6 @@
 package tests;
 
-import models.Car;
 import models.Search;
-import models.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -18,9 +16,16 @@ public class SearchTests extends TestBase{
     public void precondition(){
 
     }
+    @Test
+    public void searchPositiveTest(){
+        app.getSearch().fillSearchFormCW15("Tel Aviv", "07/14/2023","03/19/2024");
+        app.getSearch().pause(1000);
+        app.getSearch().submitSearch();
+
+    }
 
     @Test()
-    public void FindCarPositiveByPickingDates(){
+    public void FindCarPositiveByPickingDates(){            //HW14
 
         Search search = Search.builder()
                 .city("Tel Aviv")
@@ -35,7 +40,7 @@ public class SearchTests extends TestBase{
         Assert.assertTrue(app.getSearch().isSearchSuccess());
     }
     @Test()
-    public void FindCarPositiveByTypingDates(){
+    public void FindCarPositiveByTypingDates(){           //HW14
 
         Search search = Search.builder()
                 .city("Tel Aviv")
@@ -49,14 +54,14 @@ public class SearchTests extends TestBase{
         Assert.assertTrue(app.getSearch().isSearchSuccess());
     }
     @Test()
-    public void FindCarPositiveByByTypingRandomDatesWithinOneYear(){
+    public void FindCarPositiveByByTypingRandomDatesWithinOneYear(){           //HW14
         LocalDate today = LocalDate.now();
         Random random = new Random();
 
-        int daysToAdd1 = random.nextInt(365) + 1;  // Генерация случайного числа от 1 до 365
+        int daysToAdd1 = random.nextInt(365) + 1;
         LocalDate dates1 = today.plusDays(daysToAdd1);
 
-        int daysToAdd2 = random.nextInt(365) + 1;  // Генерация случайного числа от 1 до 365
+        int daysToAdd2 = random.nextInt(365) + 1;
         LocalDate dates2 = dates1.plusDays(daysToAdd2);
 
         String formattedDates = dates1.format(DateTimeFormatter.ofPattern("M/d/yyyy")) + " - " + dates2.format(DateTimeFormatter.ofPattern("M/d/yyyy"));
@@ -73,7 +78,7 @@ public class SearchTests extends TestBase{
         Assert.assertTrue(app.getSearch().isSearchSuccess());
     }
     @Test()
-    public void FindCarPositiveByPickingDatesInAnyMonthOfThePresentYear(){
+    public void FindCarPositiveByPickingDatesInAnyMonthOfThePresentYear(){           //HW14
 
         Search search = Search.builder()
                 .city("Tel Aviv")
