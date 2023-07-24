@@ -39,6 +39,19 @@ task mytest(type: Test){
 
     }
     if(project.hasProperty('browser')){
-        systemProperty 'browser',"$browser"
+        systemProperty 'browser',"${browser}"
+    }
+}
+task tests(type:Test){
+    useTestNG() {
+        def suite = System.getProperty('suite', '')
+        if(suite.equals('login')){
+            suites 'src/test/resources/login.xml'
+        }else{
+            suites 'src/test/resources/testng.xml'
+        }
+    }
+    if(project.hasProperty('target')){
+        systemProperty('target',"${target}")
     }
 }
