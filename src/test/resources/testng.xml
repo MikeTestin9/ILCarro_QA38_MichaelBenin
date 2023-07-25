@@ -1,9 +1,22 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Production" verbose="1" >
-    <test name="smoke" >
+    <test name="User">
+        <classes>
+            <class name="tests.LoginTests"/>
+            <class name="tests.RegistrationTests"/>
+        </classes>
+    </test>
+
+    <test name="Car" >
         <classes>
             <class name="tests.AddNewCar" />
+        </classes>
+    </test>
+
+    <test name="search">
+        <classes>
+            <class name="tests.SearchTests"/>
         </classes>
     </test>
 </suite>
